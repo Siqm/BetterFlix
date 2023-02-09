@@ -11,3 +11,6 @@ Criando Error
 Criando Home
 Criando Rotas, inserindo Header em todas as paginas
 Configurando rotas desconhecidas para página de erro
+
+## 3
+Instalando npm i axios
