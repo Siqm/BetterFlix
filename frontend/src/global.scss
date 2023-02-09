@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.app {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+:root {
+    --blue-900: #03071E;
+
+    --red-900: #370617;
+    --red-700: #6A040F;
+    --red-500: #9d0208;
+    --red-300: #D00000;
+
+    --orange-900: #DC2F02;
+    --orange-700: #E85D04;
+    --orange-500: #F48C06;
+    --orange-300: #FAA307;
+
+    --yellow-700: #FFBA09
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--blue-900);
+}
+
+body, input, textarea, select, button {
+    font: 400 1rem sans-serif;
+}
+
+@media (max-width: 720px) {
+    html{
+        font-size: 87.5%;
+    }
+}
+
+@media (max-width:1080px) {
+    html {
+        font-size: 93.75%;
+    }
+}
