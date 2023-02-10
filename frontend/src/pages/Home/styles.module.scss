@@ -1,46 +1,89 @@
 .container {
-    margin: 35px 20px;
-    display: flex;
-    
+    margin-top: 10px;
+    color: #fff
 }
 
-.nowPlaying {
-    max-width: 33%;
-    border: solid 1px #ddd;
+.movieContainer {
+    margin: 25px;
+    border: solid 2px #ddd;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    height: 450px;
+    background-color: var(--red-700);
+
     border-radius: 8px;
-    padding: 10px;
-    font-size: 1rem;
 
-    color: var(--yellow-700);
+    overflow-x: scroll;
 
-    img {
-        width: 300px;
-        max-width: 100%;
-        max-height: 340px;
-        object-fit: cover;
-        display: block;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
+    &::-webkit-scrollbar {
+        // display: none;
+        background-color: #dfe6e9;
+        border-radius: 8px;
+        width: 15px;
     }
 
-    strong {
-        margin-bottom: 50px;
-        
+    &::-webkit-scrollbar-track {
+        border: 5px solid var(--red-700);
+        border-radius: 8px;
+        background-color: #b2bec3;
+    }
 
+    &::-webkit-scrollbar-thumb {
+        border: solid 3px #000;
+        background-color: #b2bec3;
+        border-radius: 8px;
+        height: 5px;
+
+    }
+}
+
+.card {
+    background-color: var(--red-900);
+    margin: auto 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    height: 400px;
+    align-items: center;
+    border-radius: 8px;
+
+    h1 {
+        height: 70px;
+        text-align: center;
+        margin-top: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     a {
-        background-color: var(--orange-900);
+        background-color: var(--orange-500);
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: .2s;
+
+        width: 250px;
+        height: 50px;
+        text-align: center;
+
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 5px 0;
-        font-size: 24px;
-        color: #FFF;
-        border-bottom-right-radius: 8px;
-        border-bottom-left-radius: 8px;
-        max-width: 100%;
-        width: 300px;
 
+        border-radius: 0 0 8px 8px;
+
+        &:hover {
+            filter: brightness(1.2);
+        }
     }
 }
+
+.poster {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+
+    border-radius: 8px 8px 0 0;
+}
+
