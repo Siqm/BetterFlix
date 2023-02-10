@@ -14,3 +14,8 @@ Configurando rotas desconhecidas para página de erro
 
 ## 3
 Instalando npm i axios
+Fazendo lógica para consumir api
+Colocando o resultado da api em um useState e montando pagina home
+Estilizando Home
+
+## 4

@@ -83,13 +83,17 @@ export default function Home() {
         })}
       </div>
 
-      {/* <div className={styles.movieContainer}>
+      <div className={styles.movieContainer}>
         {nowPlaying.map((movie) => {
           return (
-            <article key={movie.id}>
-              <strong>{movie.title}</strong>
+            <article key={movie.id} className={styles.card}>
+              <h1>{movie.title}</h1>
 
-              <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} />
+              <img 
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} 
+                alt={movie.title} 
+                className={styles.poster}
+              />
 
               <Link to={`/topRated/${movie.id}`}>Acessar</Link>
             </article>
@@ -100,16 +104,20 @@ export default function Home() {
       <div className={styles.movieContainer}>
         {upcoming.map((movie) => {
           return (
-            <article key={movie.id}>
-              <strong>{movie.title}</strong>
+            <article key={movie.id} className={styles.card}>
+              <h1>{movie.title}</h1>
 
-              <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} />
+              <img 
+              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} 
+              alt={movie.title} 
+              className={styles.poster}
+              />
 
               <Link to={`/topRated/${movie.id}`}>Acessar</Link>
             </article>
           )
         })}
-      </div> */}
+      </div>
     </div>
   )
 }
