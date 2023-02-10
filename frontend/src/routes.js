@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Error from "./components/Error";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Movie from "./pages/Movie";
 
 export default function RouterApp() {
     return(
@@ -9,6 +10,7 @@ export default function RouterApp() {
             <Header/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
+                <Route path="/movie/:id" element={<Movie/>}/>
 
                 <Route path='*' element={<Error/>}/>
             </Routes>
