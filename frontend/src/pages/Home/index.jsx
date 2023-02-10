@@ -11,41 +11,37 @@ export default function Home() {
 
   useEffect(() => {
 
+    async function getResult(apiEndpoint) {
+
+        const response = await api.get(apiEndpoint, {
+            params: {
+              api_key: process.env.REACT_APP_API_KEY,
+              page: 1
+            }
+          })
+
+          return response
+    }
+
     async function loadNowPlaying() {
-      const response = await api.get("movie/now_playing", {
-        params: {
-          api_key: process.env.REACT_APP_API_KEY,
-          page: 1
-        }
-      })
 
-      console.log(response.data.results)
+        const nowPlaying = (await getResult("movie/now_playing")).data.results
 
-      setNowPlaying(response.data.results)
+      setNowPlaying(nowPlaying)
     }
 
     async function loadTopRated() {
-      const response = await api.get("/movie/top_rated", {
-        params: {
-          api_key: process.env.REACT_APP_API_KEY,
-          page: 1
-        }
-      })
 
-      setTopRated(response.data.results)
+      const topRated = (await getResult("/movie/top_rated")).data.results
+
+      setTopRated(topRated)
     }
 
     async function loadUpcoming() {
-      const response = await api.get("/movie/upcoming", {
-        params: {
-          api_key: process.env.REACT_APP_API_KEY,
-          page: 1
-        }
-      })
 
+      const upcoming = (await getResult("/movie/upcoming")).data.results
 
-
-      setUpcoming(response.data.results)
+      setUpcoming(upcoming)
     }
 
     loadNowPlaying()
@@ -63,7 +59,6 @@ export default function Home() {
 
         {topRated.map((movie) => {
           return (
-/* cade o css  */
 
             <article key={movie.id} className={styles.card}>
               <h1>{movie.title}</h1>
@@ -74,7 +69,7 @@ export default function Home() {
                 className={styles.poster}
               />
 
-              <Link to={`/topRated/${movie.id}`}>Acessar</Link>
+              <Link to={`/movie/${movie.id}`}>Acessar</Link>
 
             </article>
 
@@ -95,7 +90,7 @@ export default function Home() {
                 className={styles.poster}
               />
 
-              <Link to={`/topRated/${movie.id}`}>Acessar</Link>
+              <Link to={`/movie/${movie.id}`}>Acessar</Link>
             </article>
           )
         })}
@@ -113,7 +108,7 @@ export default function Home() {
               className={styles.poster}
               />
 
-              <Link to={`/topRated/${movie.id}`}>Acessar</Link>
+              <Link to={`/movie/${movie.id}`}>Acessar</Link>
             </article>
           )
         })}
