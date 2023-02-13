@@ -1,6 +1,14 @@
 # O projeto
 
-
+Uma aplicação ReactJs que consome a API <a href="https://www.themoviedb.org/">The Movie DB</a> em alguns endpoints específicos.
+Os endpoints consumidos são:
+1. De imagem (para posters), <a href="https://developers.themoviedb.org/3/getting-started/images">mais informações</a>
+2. Para detalhar um filme, <a href="https://developers.themoviedb.org/3/movies/get-movie-details">mais informações</a>
+3. Lista de filmes em cartaz, <a href="https://developers.themoviedb.org/3/movies/get-now-playing">mais informações</a>
+4. Lista dos melhores avaliados, <a href="https://developers.themoviedb.org/3/movies/get-top-rated-movies">mais informações<a/>
+5. Lista dos filmes que irão lançar, <a href="https://developers.themoviedb.org/3/movies/get-upcoming">mais informações</a>
+ 
+Utilizei esse conteúdo para montar todas as páginas da aplicação, a página Home irá apresetar as listas, Movie irá detalhar um filme escolhido pelo usuário e Favorites mostrará a lista de filmes salvos localmente
 
 ## Requisitos
 
