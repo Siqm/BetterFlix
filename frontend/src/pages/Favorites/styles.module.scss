@@ -1,0 +1,46 @@
+.container {
+    color: #fff;
+    width: 40%;
+    margin: auto;
+}
+
+.main {
+    margin-top: 25px;
+    border: solid 1px var(--yellow-700);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.list {
+    margin-top: 25px;
+
+    li {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        button {
+            margin-left: 10px;
+            background-color: var(--yellow-700);
+            padding: 5px;
+            border-radius: 8px;
+            border: solid 1px #000;
+
+        }
+
+        a {
+            background-color: var(--yellow-700);
+            padding: 5px;
+            border-radius: 8px;
+            border: solid 1px #000;
+            color: #000;
+        }
+    }
+
+    .empty {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

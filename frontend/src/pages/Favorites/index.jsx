@@ -25,10 +25,11 @@ export default function Favorites() {
   return (
     <div className={styles.container}>
       <div className={styles.main}>
+        <h1>Meus Filmes</h1>
         <ul className={styles.list}>
           {
             movies.length === 0 &&
-            <span>Your saved movies list is empty :(</span>
+            <span className={styles.empty}>Your saved movies list is empty :(</span>
           }
 
           <ul>
@@ -39,7 +40,7 @@ export default function Favorites() {
                     <span>{i.title}</span>
 
                     <div>
-                      <Link to={`/filmes/${i.id}`}>See details</Link>
+                      <Link to={`/movie/${i.id}`}>See details</Link>
                       <button onClick={() => {removeMovie(i.id)}}>Remove</button>
                     </div>
                   </li>
