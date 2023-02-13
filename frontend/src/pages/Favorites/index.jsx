@@ -25,7 +25,7 @@ export default function Favorites() {
   return (
     <div className={styles.container}>
       <div className={styles.main}>
-        <h1>Meus Filmes</h1>
+        <h1>Saved Movies</h1>
         <ul className={styles.list}>
           {
             movies.length === 0 &&
