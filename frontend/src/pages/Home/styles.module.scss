@@ -1,10 +1,17 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 25px 0 5px;
+}
+
 .container {
     margin-top: 10px;
     color: #fff
 }
 
 .movieContainer {
-    margin: 25px;
+    margin: 0 25px;
     border: solid 2px #ddd;
     width: 90%;
     display: flex;
@@ -37,6 +44,8 @@
 
     }
 }
+
+
 
 .card {
     background-color: var(--red-900);
