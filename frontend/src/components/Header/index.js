@@ -9,7 +9,7 @@ export default function Header() {
             </Link>
 
             <Link className={styles.favoritos} to='/favorites'>
-                Meus Filmes
+                My movies
             </Link>
         </header>
     )

@@ -28,6 +28,25 @@ export default function Movie() {
     loadMovie()
   }, )
 
+  function saveMovie() {
+    const myList = localStorage.getItem("@primeflix")
+
+    let savedMovies = JSON.parse(myList) || [];
+
+    const hasMovie = savedMovies.some(
+        (savedMovies) => savedMovies.id === movie.id
+    )
+
+    if(hasMovie) {
+        alert("Esse filme já foi salvo!")
+        return;
+    }
+
+    savedMovies.push(movie);
+    localStorage.setItem("@primeflix", JSON.stringify(savedMovies))
+    alert('Sucesso!')
+  }
+
   if(loading) {
     return (
         <div>
@@ -50,7 +69,7 @@ export default function Movie() {
       <strong>Rate: {movie.vote_average}</strong>
 
       <div className={styles.areaButtons}>
-        <button>Save</button>
+        <button onClick={saveMovie}>Save</button>
         <button>
           <a
             href={`https://youtube.com/results?search_query=${movie.title} Trailer`}

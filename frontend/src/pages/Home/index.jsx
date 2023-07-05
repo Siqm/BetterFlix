@@ -5,133 +5,122 @@ import styles from './styles.module.scss'
 
 export default function Home() {
 
-    const [nowPlaying, setNowPlaying] = useState([]);
-    const [topRated, setTopRated] = useState([]);
-    const [upcoming, setUpcoming] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const content = [nowPlaying, topRated, upcoming]
+	const [nowPlaying, setNowPlaying] = useState([]);
+	const [topRated, setTopRated] = useState([]);
+	const [upcoming, setUpcoming] = useState([]);
 
-    useEffect(() => {
+	useEffect(() => {
 
-        async function getResult(apiEndpoint) {
+		async function getResult(apiEndpoint) {
 
-            const response = await api.get(apiEndpoint, {
-                params: {
-                    api_key: process.env.REACT_APP_API_KEY,
-                    page: 1
-                }
-            })
+			const response = await api.get(apiEndpoint, {
+				params: {
+					api_key: process.env.REACT_APP_API_KEY,
+					page: 1
+				}
+			})
 
-            return response
-        }
+			return response
+		}
 
-        async function loadNowPlaying() {
+		async function loadNowPlaying() {
 
+			const nowPlaying = (await getResult("movie/now_playing")).data.results
 
-            const nowPlaying = (await getResult("movie/now_playing")).data.results
+			setNowPlaying(nowPlaying)
+		}
 
-            setNowPlaying(nowPlaying)
-            setLoading(false)
-        }
+		async function loadTopRated() {
 
-        async function loadTopRated() {
+			const topRated = (await getResult("/movie/top_rated")).data.results
 
-            const topRated = (await getResult("/movie/top_rated")).data.results
+			setTopRated(topRated)
+		}
 
-            setTopRated(topRated)
-            setLoading(false)
-        }
+		async function loadUpcoming() {
 
-        async function loadUpcoming() {
+			const upcoming = (await getResult("/movie/upcoming")).data.results
 
-            const upcoming = (await getResult("/movie/upcoming")).data.results
+			setUpcoming(upcoming)
+		}
 
-            setUpcoming(upcoming)
-            setLoading(false)
-
-        }
-
-        loadNowPlaying()
-        loadTopRated()
-        loadUpcoming()
+		loadNowPlaying()
+		loadTopRated()
+		loadUpcoming()
 
 
-    }, [])
+	}, [])
 
-    if (loading) {
-        
-        return (
-            <div className={styles.container}>
-                <h1>Now Playing</h1>
-                <div className={styles.movieContainer}>
-                    <h3>Carregando filmes</h3>
-                </div>
-            </div>
-        )
-    }
+            // <div className={styles.movieContainer}>
+            //     {nowPlaying.map((movie) => {
+            //         return (
+            //             <article key={movie.id} className={styles.card}>
+            //                 <h1>{movie.title}</h1>
 
+	return (
+		<div className={styles.container}>
 
-    return (
-        <div className={styles.container}>
-            <h1>Now Playing</h1>
-            <div className={styles.movieContainer}>
+			<h1>Top Rated</h1>
+			<div className={styles.movieContainer}>
 
-                {topRated.map((movie) => {
-                    return (
+				{topRated.map((movie) => {
+					return (
+						<>
+							<article key={movie.id} className={styles.card}>
+								<h1>{movie.title}</h1>
 
-                        <article key={movie.id} className={styles.card}>
-                            <h1>{movie.title}</h1>
+								<img
+									src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+									alt={movie.title}
+									className={styles.poster}
+								/>
 
-                            <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                                alt={movie.title}
-                                className={styles.poster}
-                            />
+								<Link to={`/movie/${movie.id}`}>Acessar</Link>
 
-                            <Link to={`/movie/${movie.id}`}>Acessar</Link>
+							</article>
 
-                        </article>
+						</>
+					)
+				})}
+			</div>
 
+			<h1>Now Playing</h1>
+			<div className={styles.movieContainer}>
+				{nowPlaying.map((movie) => {
+					return (
+						<article key={movie.id} className={styles.card}>
+							<h1>{movie.title}</h1>
 
-                    )
-                })}
-            </div>
+							<img
+								src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+								alt={movie.title}
+								className={styles.poster}
+							/>
 
-            <div className={styles.movieContainer}>
-                {nowPlaying.map((movie) => {
-                    return (
-                        <article key={movie.id} className={styles.card}>
-                            <h1>{movie.title}</h1>
+							<Link to={`/movie/${movie.id}`}>Acessar</Link>
+						</article>
+					)
+				})}
+			</div>
 
-                            <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                                alt={movie.title}
-                                className={styles.poster}
-                            />
+			<h1>Up coming</h1>
+			<div className={styles.movieContainer}>
+				{upcoming.map((movie) => {
+					return (
+						<article key={movie.id} className={styles.card}>
+							<h1>{movie.title}</h1>
 
-                            <Link to={`/movie/${movie.id}`}>Acessar</Link>
-                        </article>
-                    )
-                })}
-            </div>
+							<img
+								src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+								alt={movie.title}
+								className={styles.poster}
+							/>
 
-            <div className={styles.movieContainer}>
-                {upcoming.map((movie) => {
-                    return (
-                        <article key={movie.id} className={styles.card}>
-                            <h1>{movie.title}</h1>
-
-                            <img
-                                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                                alt={movie.title}
-                                className={styles.poster}
-                            />
-
-                            <Link to={`/movie/${movie.id}`}>Acessar</Link>
-                        </article>
-                    )
-                })}
-            </div>
-        </div>
-    )
+							<Link to={`/movie/${movie.id}`}>Acessar</Link>
+						</article>
+					)
+				})}
+			</div>
+		</div>
+	)
 }
