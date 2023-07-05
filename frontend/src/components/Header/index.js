@@ -8,7 +8,7 @@ export default function Header() {
                 BetterFlix
             </Link>
 
-            <Link className={styles.favoritos} to='/favoritos'>
+            <Link className={styles.favoritos} to='/favorites'>
                 Meus Filmes
             </Link>
         </header>

@@ -9,7 +9,6 @@ export default function Movie() {
   const { id } = useParams();
   const [movie, setMovie] = useState();
   const [loading, setLoading] = useState(true);
-  
 
   useEffect(() => {
     async function loadMovie() {
@@ -34,7 +33,6 @@ export default function Movie() {
         <div>
             loading
         </div>
-
     )
   }
 
